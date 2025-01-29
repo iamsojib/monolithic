@@ -14,10 +14,10 @@ ENV GENERICCACHE_VERSION=2 \
     MIN_FREE_DISK=10g \
     CACHE_MAX_AGE=3560d \
     CACHE_SLICE_SIZE=1m \
-    UPSTREAM_DNS="8.8.8.8 8.8.4.4" \
+    UPSTREAM_DNS="8.8.8.8 1.1.1.1" \
     BEAT_TIME=1h \
     LOGFILE_RETENTION=3560 \
-    CACHE_DOMAINS_REPO="https://github.com/uklans/cache-domains.git" \
+    CACHE_DOMAINS_REPO="https://github.com/iamsojib/cache-domains.git" \
     CACHE_DOMAINS_BRANCH=master \
     NGINX_WORKER_PROCESSES=auto \
     NGINX_LOG_FORMAT=cachelog
@@ -42,7 +42,7 @@ RUN rm /etc/nginx/sites-enabled/* /etc/nginx/stream-enabled/* ;\
     mkdir -m 755 -p /data/cachedomains		;\
     mkdir -m 755 -p /tmp/nginx
 
-RUN git clone --depth=1 --no-single-branch https://github.com/uklans/cache-domains/ /data/cachedomains
+RUN git clone --depth=1 --no-single-branch https://github.com/iamsojib/cache-domains/ /data/cachedomains
 
 VOLUME ["/data/logs", "/data/cache", "/data/cachedomains", "/var/www"]
 
